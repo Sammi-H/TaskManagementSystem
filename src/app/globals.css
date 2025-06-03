@@ -1,0 +1,707 @@
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/*Min css för dashboard*/
+
+
+.swimlane-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.swimlane-row {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
+}
+
+.users-column {
+  flex: 1;
+  max-width: 250px;
+  border-right: 1px solid #e2e8f0;
+  overflow-y: auto;
+  background-color: #f7fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.task-info-column {
+  flex: 2;
+  max-width: 500px;
+  border-right: 1px solid #e2e8f0;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+.task-detail-column {
+  flex: 1;
+  max-width: 350px;
+  padding: 1rem;
+  overflow-y: auto;
+  background-color: #f7fafc;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-panel form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.task-panel input,
+.task-panel textarea {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 95%;
+  resize: vertical;
+}
+
+.task-panel input:focus,
+.task-panel textarea:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+.task-panel button {
+  align-self: flex-start;
+  background-color: #2b6cb0;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.task-panel button:hover {
+  background-color: #2c5282;
+}
+
+.task-panel hr {
+  border: none;
+  border-top: 1px solid #e2e8f0;
+  margin: 0.5rem 0;
+}
+
+.no-tasks {
+  font-style: italic;
+  color: #718096;
+}
+
+.task-list > div {
+  display: flex;
+  flex-direction: column;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background-color: #f7fafc;
+}
+
+.task-list strong {
+  font-size: 1.1rem;
+  color: #2b6cb0;
+}
+
+.task-list small {
+  font-size: 0.95rem;
+  color: #4a5568;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.task-list button {
+  background-color: #38a169;
+  color: #fff;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+  margin-top: 1em;
+}
+
+.task-list button:hover {
+  background-color: #2f855a;
+}
+
+.task-list button:nth-child(2) {
+  background-color: #e53e3e;
+}
+
+.task-list button:nth-child(2):hover {
+  background-color: #c53030;
+}
+
+.user-name {
+  background-color: #3182ce;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.user-name:hover {
+  background-color: #2c5282;
+}
+
+.logout-btn {
+  align-self: flex-end;
+  background-color: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 1em;
+}
+
+.logout-btn:hover {
+  background-color: #c53030;
+}
+
+h1 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+h2 {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.5rem;
+  align-self: flex-start;
+}
+
+p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .swimlane-row {
+    flex-direction: column;
+  }
+  .users-column,
+  .task-info-column,
+  .task-detail-column {
+    max-width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logout-btn {
+    align-self: stretch;
+    text-align: center;
+  }
+  .user-name {
+    font-size: 0.95rem;
+  }
+  .task-panel {
+    padding: 0.8rem;
+  }
+  .task-panel form {
+    gap: 0.5rem;
+  }
+  .task-panel button,
+  .task-list button {
+    width: 100%;
+    margin-right: 0;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  .logout-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.95rem;
+    margin-top: 1em;
+  }
+  .user-name {
+    padding: 0.6rem 0.9rem;
+    font-size: 1rem;
+  }
+  .task-panel input,
+  .task-panel textarea {
+    font-size: 0.95rem;
+  }
+  .task-panel button,
+  .task-list button {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*Min Css för logga in */
+
+
+
+.login-portal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 2rem auto;
+}
+
+
+.login-portal h1 {
+  color: #2b6cb0;
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  text-align: center;
+}
+
+.login-portal p {
+  color: #4a5568;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+
+.login-portal form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+
+
+.login-portal input {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-portal input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.2);
+}
+
+
+.btn {
+  background-color: #2b6cb0;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #2c5282;
+}
+
+
+@media (max-width: 500px) {
+  .login-portal {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  .login-portal h1 {
+    font-size: 1.5rem;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 0.65rem;
+  }
+}
+
+
+/*Min css för user dashboard*/
+
+
+
+
+/* Logga ut‑knapp */
+.logout-btn {
+  align-self: flex-end;
+  background-color: #e53e3e;
+  color: #fff;
+  border: none;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.logout-btn:hover {
+  background-color: #c53030;
+}
+
+/* Rubriker och stycken */
+h1 {
+  margin: 0.5rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+h2 {
+  margin: 1rem 0 0.5rem 0;
+  font-size: 1.5rem;
+  align-self: flex-start;
+}
+p {
+  font-size: 1rem;
+  text-align: center;
+}
+
+/* Wrapper kring all dashboards‑innehåll */
+.dashboard-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+/* Lista över användarens uppgifter */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  margin-top: 1rem;
+  
+}
+
+/* Individuellt kort för varje uppgift */
+.task-item {
+  display: flex;
+  flex-direction: column;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  padding: 1rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Titel och deadline */
+.task-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 0.5rem;
+}
+
+/* Beskrivning */
+.task-desc {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+/* Åtgärdsknappar för varje task */
+.task-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+}
+
+/* Standard action‑knapp */
+.user-btn {
+  background-color: #2b6cb0;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.user-btn:hover {
+  background-color: #2c5282;
+}
+
+/* Delete‑knapp separat färg */
+.user-btn.delete {
+  background-color: #e53e3e;
+}
+.user-btn.delete:hover {
+  background-color: #c53030;
+}
+
+/* Ingen uppgift */
+.no-tasks {
+  font-style: italic;
+  color: #718096;
+  text-align: center;
+}
+
+/* Responsivitet */
+@media (max-width: 500px) {
+  .dashboard-card {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  h1 {
+    font-size: 1.75rem;
+  }
+  .logout-btn {
+    padding: 0.45rem 0.9rem;
+    font-size: 0.95rem;
+  }
+  .task-item {
+    padding: 0.75rem;
+  }
+  .task-title {
+    font-size: 1.1rem;
+  }
+  .task-desc {
+    font-size: 0.9rem;
+  }
+  .user-btn {
+    font-size: 0.9rem;
+    padding: 0.45rem 0.9rem;
+  }
+
+
+  /* Card runt varje task */
+.task-item {
+  background-color: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3em;
+  width: 100%;
+  max-width: 400px;
+ 
+}
+
+/* Title och beskrivning */
+.task-item .task-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #2b6cb0;
+  margin-bottom: 0.5rem;
+}
+
+.task-item .task-desc {
+  font-size: 1rem;
+  color: #4a5568;
+  margin-bottom: 1rem;
+  margin-top: 1em;
+}
+
+  
+}
+
+
+
+/*Min css för registrera sidan */
+
+
+
+.registration-form {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 25px 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgb(0 0 0 / 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.registration-form h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.registration-form p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.registration-form input[type="text"],
+.registration-form input[type="email"],
+.registration-form input[type="password"] {
+  width: 100%;
+  max-width: 370px;
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  border: 1.8px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.registration-form input[type="text"]:focus,
+.registration-form input[type="email"]:focus,
+.registration-form input[type="password"]:focus {
+  border-color: #0070f3;
+  outline: none;
+}
+
+.registration-form .errors {
+  color: #d93025;
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.registration-form .btn {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 12px;
+  background-color: #0070f3;
+  color: white;
+  font-weight: 700;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+.registration-form .btn:hover {
+  background-color: #005bb5;
+}
+
+
+
+/*Css för min modal */
+
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; 
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 12px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  max-width: 90%;
+  width: 400px;
+  
+}
+
+.modal-content p {
+  margin-bottom: 1.5em;
+  font-size: 1.1em;
+}
+
+.modal-btn {
+  padding: 0.6em 1.2em;
+  border: none;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+
+.modal-btn:hover {
+  background-color: #0059c1;
+}
+
+@media (max-width: 480px) {
+  .modal-content {
+    width: 90%;
+    padding: 1.5em;
+  }
+
+  .modal-content p {
+    font-size: 1em;
+  }
+
+  .modal-btn {
+    width: 100%;
+  }
+}
